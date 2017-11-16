@@ -1,0 +1,32 @@
+/*
+ * To use the Platform with Gradle, you can used the Gradle Dependency Management Plugin and import the bom in much the same way as you would with Maven.
+ * The use of a plugin is necessary as Gradle does not provide an equivalent of Maven's built-in dependency management support.
+ * To use the plugin, you configure your build to apply the plugin and then in the 'dependencyManagement' configuration you import the Platform's bom:
+*/
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'io.spring.gradle:dependency-management-plugin:1.0.0.RELEASE'
+  }
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+  mavenCentral()
+}
+
+dependencyManagement {
+  imports {
+    mavenBom 'io.spring.platform:platform-bom:Brussels-SR5'
+  }
+}
+
+dependencies {
+  compile 'org.springframework:spring-core'
+  compile 'org.springframework:spring-beans'
+  compile 'org.springframework:spring-context'
+  compile 'commons-logging:commons-logging'
+}
