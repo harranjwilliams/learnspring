@@ -12,7 +12,13 @@ gradle-app.setting
 .gradletasknamecache
 
 ### Java ###
+bin/
 *.class
+
+# Spring Tool Suite IDE (Eclipse)
+.classpath
+.project
+.settings/
 
 # Package Files
 *.jar
